@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автолюкс VIP Transfer Ульяновск</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        :root { 
+            --gold: #d4af37; 
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --glass: rgba(15, 15, 15, 0.9); 
+            --black: #050505;
+        }
+
+        body { 
+            margin: 0; font-family: 'Segoe UI', sans-serif; 
+            background: radial-gradient(circle at top right, #1a1a1a, #050505);
+            color: white; scroll-behavior: smooth; overflow-x: hidden;
+        }
+
+        /* АНИМАЦИИ */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ШАПКА */
+        header { 
+            height: 75vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com'); 
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 10px 50px rgba(0,0,0,1);
+        }
+
+        .header-content h1 { 
+            font-size: clamp(2.5rem, 9vw, 5rem); color: var(--gold); 
+            margin: 0; text-transform: uppercase; letter-spacing: 8px;
+            text-shadow: 0 0 30px var(--gold-glow); font-weight: 900;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h2 { text-align: center; color: var(--gold); text-transform: uppercase; margin: 90px 0 50px; letter-spacing: 5px; font-size: 2.2rem; text-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+
+        /* БЛОК ПОЧЕМУ МЫ (ИЗ ФОТО) */
+        .benefits { 
+            background: var(--glass); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 60px; border-radius: 40px; border: 1px solid rgba(212, 175, 55, 0.25); 
+            margin-top: -120px; box-shadow: 0 40px 80px rgba(0,0,0,0.9); animation: fadeInUp 0.8s ease-out;
+        }
+        .benefits ul { list-style: none; padding: 0; margin: 0; }
+        .benefits li { 
+            margin-bottom: 30px; font-size: 1.2rem; display: flex; align-items: center; gap: 25px; 
+            padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); transition: 0.3s; 
+        }
+        .benefits li:hover { transform: translateX(15px); color: var(--gold); }
+        .benefits i { color: var(--gold); font-size: 1.8rem; filter: drop-shadow(0 0 8px var(--gold)); }
+
+        /* БЛОК УСЛУГ (7 ПУНКТОВ) */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-item { 
+            background: var(--glass); backdrop-filter: blur(15px); padding: 40px 25px; border-radius: 30px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; text-align: center; min-height: 220px;
+        }
+        .service-item:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); }
+        .service-item i { color: var(--gold); font-size: 3rem; margin-bottom: 25px; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+        .service-item h3 { font-size: 1.2rem; text-transform: uppercase; margin: 0; letter-spacing: 2px; line-height: 1.5; }
+
+        /* АВТОПАРК (8 МАШИН ПОЛНЫЙ ФАРШ) */
+        .cars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-bottom: 80px; }
+        .car-card { 
+            background: linear-gradient(145deg, #1a1a1a, #080808); border-radius: 30px; overflow: hidden; 
+            border: 1px solid #252525; transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); animation: fadeInUp 1s ease-out both; 
+        }
+        .car-card:hover { border-color: var(--gold); transform: scale(1.03); box-shadow: 0 0 50px rgba(212, 175, 55, 0.2); }
+        .car-img { height: 220px; background: #000; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #444; border-bottom: 1px solid #222; }
+        .car-info { padding: 30px; }
+        .car-info h3 { color: var(--gold); margin: 0 0 15px 0; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
+        .car-desc { color: #ccc; font-size: 1rem; line-height: 1.8; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        .car-tag { color: var(--gold); font-weight: 900; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 10px; display: inline-block; }
+
+        /* ОТЗЫВЫ */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        .review-card { background: var(--glass); backdrop-filter: blur(15px); padding: 35px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .stars { color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; }
+        .review-text { font-style: italic; color: #bbb; margin-bottom: 20px; line-height: 1.6; }
+        .review-author { font-weight: bold; color: var(--gold); text-transform: uppercase; font-size: 0.9rem; }
+
+        /* КАРТА */
+        .map-container { width: 100%; height: 450px; border-radius: 40px; overflow: hidden; border: 2px solid var(--gold); margin-bottom: 150px; box-shadow: 0 0 30px var(--gold-glow); }
+
+        /* КНОПКИ СПРАВА */
+        .side-panel { position: fixed; right: 40px; bottom: 40px; display: flex; flex-direction: column; gap: 15px; z-index: 1500; }
+        .floating-btn {
+            padding: 22px 35px; border-radius: 100px; text-decoration: none; font-weight: 900;
+            display: flex; align-items: center; gap: 15px; transition: 0.4s; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;
+        }
+        .btn-calc { background: var(--gold); color: #000 !important; }
+        .btn-reviews { background: #222; color: var(--gold) !important; border: 1px solid var(--gold); }
+        .btn-tg { background: linear-gradient(45deg, #0088cc, #24A1DE); color: white; }
+        .floating-btn:hover { transform: scale(1.08) translateX(-10px); }
+
+        footer { text-align: center; padding: 80px; background: #000; color: #444; border-top: 2px solid #111; letter-spacing: 4px; }
+    </style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header>
+    <div class="header-content">
+        <h1>АВТОЛЮКС VIP</h1>
+        <p style="letter-spacing: 15px; color: var(--gold); font-weight: 900; margin-top: 20px;">УЛЬЯНОВСК</p>
+    </div>
+</header>
+
+<div class="container">
+    <!-- ПОЧЕМУ МЫ (ПО ФОТО) -->
+    <section class="benefits">
+        <h2>Почему нужно выбрать именно Нас?</h2>
+        <ul>
+            <li><i class="fas fa-crown"></i><span>Круглосуточный режим работы, приема заказов и поддержки клиентов.</span></li>
+            <li><i class="fas fa-car"></i><span>Новые Автомобили, Минивэны ВИП Класса.</span></li>
+            <li><i class="fas fa-clock"></i><span>Встретим в удобное для Вас время и с комфортом доставим до места назначения.</span></li>
+            <li><i class="fas fa-user-tie"></i><span>Собственные транспортные средства и квалифицированные водители.</span></li>
+            <li><i class="fas fa-shield-alt"></i><span>Гарантия безопасности и конфиденциальности.</span></li>
+        </ul>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <h2>Наши Премиальные Услуги</h2>
+    <div class="services-grid">
+        <div class="service-item"><i class="fas fa-car-side"></i><h3>Аренда VIP авто<br>с водителем</h3></div>
+        <div class="service-item"><i class="fas fa-gem"></i><h3>ВИП Трансфер</h3></div>
+        <div class="service-item"><i class="fas fa-plane-departure"></i><h3>Трансфер в аэропорт<br>или из него</h3></div>
+        <div class="service-item"><i class="fas fa-train"></i><h3>Трансфер на ЖД вокзал<br>или с него</h3></div>
+        <div class="service-item"><i class="fas fa-id-card"></i><h3>Встреча в аэропорту<br>с табличкой</h3></div>
+        <div class="service-item"><i class="fas fa-handshake"></i><h3>Бизнес встречи</h3></div>
+        <div class="service-item"><i class="fas fa-users-cog"></i><h3>Обслуживание<br>делегаций</h3></div>
+    </div>
+
+    <!-- АВТОПАРК (8 МАШИН) -->
+    <h2>Эксклюзивный Автопарк</h2>
+    <div class="cars-grid">
+        <div class="car-card"><img src="w223.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Mercedes S-Class W223</h3><p class="car-desc">Год выпуска: 2023 | Цвет: Черный<br>5500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="w222.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Mercedes S-Class W222</h3><p class="car-desc">Год выпуска: 2020 | Цвет: Черный<br>3500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="g500.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Mercedes G 500 AMG</h3><p class="car-desc">Год выпуска: 2020 | Цвет: Черный<br>5500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="vclass.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Mercedes V-class</h3><p class="car-desc">Год выпуска: 2020 | Цвет: Черный<br>2800/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="cruiser200.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Toyota Land Cruiser 200</h3><p class="car-desc">Год выпуска: 2021 | Цвет: Черный<br>2500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="xv70.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Toyota Camry XV 70</h3><p class="car-desc">Год выпуска: 2023 | Цвет: Черный<br>2000/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="w213.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Mercedes E-Class W213</h3><p class="car-desc">Год выпуска: 2023 | Цвет: Черный / Белый<br>2800/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="multivan.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Volkswagen Multivan</h3><p class="car-desc">Год выпуска: 2022 | Цвет: Черный<br>2500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+        <div class="car-card"><img src="crafter.jpg" class="car-img" style="object-fit: cover; width: 100%;"><div class="car-info"><h3>Volkswagen Sprinter</h3><p class="car-desc">Год выпуска: 2020 | Цвет: Белый<br>2500/Час | Наличный / Безналичный расчет +10%</p><div class="car-tag">от 3-х часов</div></div></div>
+    </div>
+
+    <!-- ОТЗЫВЫ -->
+    <h2>Наш номер телефона</h2>
+    <div class="reviews-grid">
+        <h2 style="text-align: center; margin-top: 20px;">
+            +7 999 723-72-47
+        </h2>
+    </div>
+</div>
+
+<!-- ПАНЕЛЬ КНОПОК СПРАВА -->
+<div class="side-panel">
+    <a href="https://t.me/+u0Sa6CThVUIyNmUy" class="floating-btn btn-reviews">
+        <i class="fas fa-star"></i> ОТЗЫВЫ ТГ
+    </a>
+    <a href="https://t.me/Arturcars073" class="floating-btn btn-tg">
+        <i class="fab fa-telegram-plane"></i> СВЯЗАТЬСЯ
+    </a>
+</div>
+
+<script>
+    // Логика Модального окна
+    const modal = document.getElementById('modalCalc');
+    const openBtn = document.getElementById('openCalc');
+    const closeBtn = document.getElementById('closeModal');
+
+    openBtn.onclick = function() { modal.style.display = "flex"; }
+    closeBtn.onclick = function() { modal.style.display = "none"; }
+    window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
+
+    // Логика Калькулятора
+    function runCalc() {
+        let base = document.getElementById('srvType').value;
+        let mult = document.getElementById('carType').value;
+        let hours = document.getElementById('hrsCount').value;
+        
+        let sum = Math.round(base * mult * hours);
+        document.getElementById('resPrice').innerText = sum + " ₽";
+    }
+</script>
+
+<footer>
+    © 2026 АВТОЛЮКС VIP TRANSFER УЛЬЯНОВСК. ЛУЧШИЙ СЕРВИС В ПОВОЛЖЬЕ.
+</footer>
+
+</body>
+</html>
